@@ -49,7 +49,7 @@ RUN apt-get update \
     libudunits2-0 \
     dnsutils \
     bzip2 \
-    nano \
+   nano \
     icedtea-netx \
     libgdal-dev \
     libproj-dev \
@@ -92,6 +92,7 @@ RUN cd /opt \
     && ./install.sh -a -u \
     && cd .. \
     && rm -r microsoft-r-open
+    && chmod -R a+x /opt/microsoft/ropen/${RVERSION}/lib64/R/library
 
 RUN Rscript -e 'install.packages("devtools")'
 
