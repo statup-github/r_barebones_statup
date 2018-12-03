@@ -18,14 +18,14 @@ RUN apt-get update \
     gsfonts \
     libblas-dev \
     libbz2-1.0 \
-    libcurl3 \
-    libicu55 \
+    libcurl4 \
+    libicu60 \
     libjpeg62 \
     libopenblas-dev \
     libpangocairo-1.0-0 \
     libpcre3 \
     libpng16-16 \
-    libreadline6 \
+    libreadline7 \
     libtiff5 \
     liblzma5 \
     locales \
