@@ -19,7 +19,7 @@ RUN apt-get update \
     libblas-dev \
     libbz2-1.0 \
     libcurl4 \
-    libicu6 \
+    libicu60 \
     libjpeg62 \
     libopenblas-dev \
     libpangocairo-1.0-0 \
@@ -77,8 +77,11 @@ RUN apt-get update \
     liblzma-dev \
     libx11-dev \
     libxt-dev \
+  && export DEBIAN_FRONTEND=noninteractive \
   && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-01_1.2.54-1ubuntu1_amd64.deb
+  && dpkg -i libpng12-01_1.2.54-1ubuntu1_amd64.deb \
+  && wget https://mirrors.edge.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
+  && dpkg -i libpng12-dev_1.2.54-1ubuntu1_amd64.deb
     
 
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
