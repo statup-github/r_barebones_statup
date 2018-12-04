@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.10.2
+FROM phusion/baseimage:0.11
 MAINTAINER Stefan Fritsch <stefan.fritsch@stat-up.com>
 
 ENV RVERSION="3.5.1"
@@ -19,12 +19,12 @@ RUN apt-get update \
     libblas-dev \
     libbz2-1.0 \
     libcurl4 \
-    libicu60 \
+    libicu6 \
     libjpeg62 \
     libopenblas-dev \
     libpangocairo-1.0-0 \
     libpcre3 \
-    libpng16-16 \
+    # libpng16-16 \
     libreadline7 \
     libtiff5 \
     liblzma5 \
@@ -71,12 +71,15 @@ RUN apt-get update \
     libjpeg-dev \
     libicu-dev \
     libpcre3-dev \
-    libpng-dev \
+    # libpng-dev \
     libreadline-dev \
     libtiff5-dev \
     liblzma-dev \
     libx11-dev \
-    libxt-dev
+    libxt-dev \
+  && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
+  && dpkg -i libpng12-01_1.2.54-1ubuntu1_amd64.deb
+    
 
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
     && echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen \
