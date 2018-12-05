@@ -79,7 +79,7 @@ RUN apt-get update \
     libxt-dev \
   && export DEBIAN_FRONTEND=noninteractive \
   && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-01_1.2.54-1ubuntu1_amd64.deb \
+  && dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb \
   && wget https://mirrors.edge.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
   && dpkg -i libpng12-dev_1.2.54-1ubuntu1_amd64.deb
     
