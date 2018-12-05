@@ -8,6 +8,13 @@ ENV LC_ALL=en_US.UTF-8 \
     TERM=xterm
 
 RUN apt-get update \
+  && apt-get install -y --no-install-recommends wget \
+  && export DEBIAN_FRONTEND=noninteractive \
+  && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
+  && dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb \
+  && apt-get install -y --no-install-recommends linux-libc-dev libc-dev zlib1g-dev libc-dev-bin \
+  && wget https://mirrors.edge.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
+  && dpkg -i libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
   && apt-get install -y --no-install-recommends \
     bash-completion \
     ca-certificates \
@@ -24,7 +31,6 @@ RUN apt-get update \
     libopenblas-dev \
     libpangocairo-1.0-0 \
     libpcre3 \
-    # libpng16-16 \
     libreadline7 \
     libtiff5 \
     liblzma5 \
@@ -71,17 +77,12 @@ RUN apt-get update \
     libjpeg-dev \
     libicu-dev \
     libpcre3-dev \
-    # libpng-dev \
     libreadline-dev \
     libtiff5-dev \
     liblzma-dev \
     libx11-dev \
     libxt-dev \
-  && export DEBIAN_FRONTEND=noninteractive \
-  && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && wget https://mirrors.edge.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-dev_1.2.54-1ubuntu1_amd64.deb
+    build-essential
     
 
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
