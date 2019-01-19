@@ -100,7 +100,8 @@ RUN cd /opt \
     && cd .. \
     && rm -r microsoft-r-open \
     && chmod -R 0777 /opt/microsoft/ropen/${RVERSION}/lib64/R/library \
-    && chmod -R 0777 /opt/microsoft/ropen/${RVERSION}/lib64/R/doc/html
+    && chmod -R 0777 /opt/microsoft/ropen/${RVERSION}/lib64/R/doc/html \
+    && echo "CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem" >> /etc/environment
 
 RUN Rscript -e 'install.packages("devtools")'
 
