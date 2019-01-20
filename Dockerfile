@@ -91,9 +91,10 @@ RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
 
 RUN update-locale
 
+ENV CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem
+
 RUN cd /opt \
     && echo "CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem" >> /etc/profile \
-    && export CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem \
     && wget https://mran.blob.core.windows.net/install/mro/${RVERSION}/microsoft-r-open-${RVERSION}.tar.gz \
     && tar -xf microsoft-r-open-${RVERSION}.tar.gz \
     && rm microsoft-r-open-${RVERSION}.tar.gz \
