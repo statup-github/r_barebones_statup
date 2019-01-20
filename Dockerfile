@@ -105,6 +105,9 @@ RUN cd /opt \
     && chmod -R 0777 /opt/microsoft/ropen/${RVERSION}/lib64/R/library \
     && chmod -R 0777 /opt/microsoft/ropen/${RVERSION}/lib64/R/doc/html
 
+RUN CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem \
+    && Rscript -e 'install.packages(c("httr", "curl"))'
+
 RUN Rscript -e 'install.packages("devtools")'
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
