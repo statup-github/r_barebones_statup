@@ -1,7 +1,7 @@
 FROM stefanfritsch/baseimage_statup:0.11
 MAINTAINER Stefan Fritsch <stefan.fritsch@stat-up.com>
 
-ENV RVERSION="3.5.1"
+ENV RVERSION="3.5.3"
 
 ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
@@ -10,79 +10,79 @@ ENV LC_ALL=en_US.UTF-8 \
 RUN apt-get update \
   && apt-get install -y --no-install-recommends wget \
   && export DEBIAN_FRONTEND=noninteractive \
-  && wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-  && apt-get install -y --no-install-recommends linux-libc-dev libc-dev zlib1g-dev libc-dev-bin \
-  && wget https://mirrors.edge.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
-  && dpkg -i libpng12-dev_1.2.54-1ubuntu1_amd64.deb \
   && apt-get install -y --no-install-recommends \
     bash-completion \
+    build-essential
+    bzip2 \
     ca-certificates \
+    curl \
+    default-jdk \
+    dnsutils \
     file \
     fonts-texgyre \
     g++ \
     gfortran \
+    git \
     gsfonts \
+    icedtea-netx \
+    libapparmor1 \
     libblas-dev \
     libbz2-1.0 \
+    libbz2-dev \
+    libc-dev \
+    libc-dev-bin \
+    libcairo2-dev \
     libcurl4 \
-    libicu60 \
-    libjpeg62 \
-    libopenblas-dev \
-    libpangocairo-1.0-0 \
-    libpcre3 \
-    libreadline7 \
-    libtiff5 \
-    liblzma5 \
-    locales \
-    make \
-    unzip \
-    zip \
-    zlib1g \
-    file \
-    git \
-    libapparmor1 \
+    libcurl4-openssl-dev \
     libcurl4-openssl-dev \
     libedit2 \
-    libssl-dev \
-    lsb-release \
-    psmisc \
-    python-setuptools \
-    sudo \
-    wget \
-    multiarch-support \
-    libudunits2-dev \
-    libudunits2-0 \
-    dnsutils \
-    bzip2 \
-    nano \
-    icedtea-netx \
     libgdal-dev \
-    libproj-dev \
     libgeos-dev \
     libgsl0-dev \
+    libicu-dev \
+    libicu60 \
+    libjpeg-dev \
+    libjpeg62 \
+    liblzma-dev \
+    liblzma5 \
+    libopenblas-dev \
+    libpango1.0-dev \
+    libpangocairo-1.0-0 \
+    libpcre3 \
+    libpcre3-dev \
+    libpng16-16 \
+    libpng16-dev \
+    libproj-dev \
+    libreadline-dev \
+    libreadline7 \
     librsvg2-dev \
+    libssl-dev \
+    libtiff5 \
+    libtiff5-dev \
+    libudunits2-0 \
+    libudunits2-dev \
+    libx11-dev \
     libxcb1-dev \
     libxdmcp-dev \
     libxslt1-dev \
     libxt-dev \
-    mdbtools \
-    netcdf-bin \
-    curl \
-    default-jdk \
-    libbz2-dev \
-    libcairo2-dev \
-    libcurl4-openssl-dev \
-    libpango1.0-dev \
-    libjpeg-dev \
-    libicu-dev \
-    libpcre3-dev \
-    libreadline-dev \
-    libtiff5-dev \
-    liblzma-dev \
-    libx11-dev \
     libxt-dev \
-    build-essential
+    linux-libc-dev \
+    locales \
+    lsb-release \
+    make \
+    mdbtools \
+    multiarch-support \
+    nano \
+    netcdf-bin \
+    psmisc \
+    python-setuptools \
+    sudo \
+    unzip \
+    wget \
+    zip \
+    zlib1g \
+    zlib1g-dev \ 
     
 
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
