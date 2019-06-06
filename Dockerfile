@@ -12,7 +12,7 @@ RUN apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y --no-install-recommends \
     bash-completion \
-    build-essential
+    build-essential \
     bzip2 \
     ca-certificates \
     curl \
