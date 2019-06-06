@@ -82,7 +82,7 @@ RUN apt-get update \
     wget \
     zip \
     zlib1g \
-    zlib1g-dev \ 
+    zlib1g-dev
     
 
 RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
