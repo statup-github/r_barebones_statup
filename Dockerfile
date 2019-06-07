@@ -95,7 +95,7 @@ ENV CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cace
 
 RUN cd /opt \
     && echo "CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem" >> /etc/profile \
-    && wget https://mran.blob.core.windows.net/install/mro/${RVERSION}/microsoft-r-open-${RVERSION}.tar.gz \
+    && wget https://mran.blob.core.windows.net/install/mro/${RVERSION}/ubuntu/microsoft-r-open-${RVERSION}.tar.gz \
     && tar -xf microsoft-r-open-${RVERSION}.tar.gz \
     && rm microsoft-r-open-${RVERSION}.tar.gz \
     && cd microsoft-r-open/ \
