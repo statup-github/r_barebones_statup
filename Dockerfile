@@ -51,7 +51,7 @@ RUN apt-get update \
     libpcre3 \
     libpcre3-dev \
     libpng16-16 \
-    libpng16-dev \
+    libpng-dev \
     libproj-dev \
     libreadline-dev \
     libreadline7 \
