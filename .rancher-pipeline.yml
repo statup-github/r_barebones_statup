@@ -1,0 +1,16 @@
+stages:
+- name: build image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: stefanfritsch/r_barebones_statup
+      pushRemote: true
+      registry: index.docker.io
+    when:
+      branch: {}
+timeout: 60
+branch:
+  include:
+  - 3.5.3
+notification: {}
