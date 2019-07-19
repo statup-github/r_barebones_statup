@@ -4,11 +4,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: stefanfritsch/r_barebones_statup
+      tag: stefanfritsch/r_barebones_statup:${CICD_GIT_BRANCH}.${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
-    when:
-      branch: {}
 timeout: 60
 branch:
   include:
