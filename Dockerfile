@@ -1,4 +1,4 @@
-FROM stefanfritsch/baseimage_statup:0.11
+FROM stefanfritsch/baseimage_statup:1.0
 MAINTAINER Stefan Fritsch <stefan.fritsch@stat-up.com>
 
 ENV RVERSION="3.5.3"
