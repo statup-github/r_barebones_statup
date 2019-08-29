@@ -19,5 +19,7 @@ stages:
       include:
       - tag
 timeout: 60
-branch: {}
+branch:
+  include:
+  - 3.5.3
 notification: {}
