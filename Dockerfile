@@ -7,8 +7,9 @@ ENV LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     TERM=xterm
 
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends wget \
+RUN apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y --no-install-recommends \
     bash-completion \
@@ -83,13 +84,6 @@ RUN apt-get update \
     zip \
     zlib1g \
     zlib1g-dev
-    
-
-RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen \
-    && echo "de_DE.UTF-8 UTF-8" >> /etc/locale.gen \
-    && locale-gen
-
-RUN update-locale
 
 ENV CURL_CA_BUNDLE=/opt/microsoft/ropen/${RVERSION}/lib64/R/lib/microsoft-r-cacert.pem
 
