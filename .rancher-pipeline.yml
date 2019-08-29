@@ -1,14 +1,23 @@
 stages:
-- name: build image
+- name: docker on tag
   steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: stefanfritsch/r_barebones_statup:${CICD_GIT_BRANCH}.${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
-      registry: index.docker.io
+  - runScriptConfig:
+      image: stefanfritsch/kaniko-maximizer_statup:latest
+      shellScript: |-
+        ls -l /
+
+        /kaniko/build-image.sh
+    env:
+      CACHE_REPO: stefanfritsch/r_barebones_statup_cache
+      REPO: stefanfritsch/r_barebones_statup
+    envFrom:
+    - sourceName: pipeline-registry-dockerhub
+      sourceKey: kaniko_docker_configjson
+      targetKey: DOCKER_CONFIG_JSON
+  when:
+    event:
+      include:
+      - tag
 timeout: 60
-branch:
-  include:
-  - 3.5.3
+branch: {}
 notification: {}
